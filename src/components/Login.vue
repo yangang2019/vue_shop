@@ -23,8 +23,8 @@
 
 <script>
   export default {
-    name: "Login",
-    data(){
+    name: 'Login',
+    data() {
       return {
         loginForm: {
           username: 'admin',
@@ -43,22 +43,22 @@
       }
     },
     methods: {
-      login(){
+      login() {
         //validate是elementUI提供的表单验证，如果表单内容通过，会返回一个true
         this.$refs.loginFormRef.validate(async validate => {
-          if(!validate) return;
+          if (!validate) return
           //将返回值data结构重置为res
-          const {data: res} = await this.$axios.post('login', this.loginForm);
-          console.log(res)
-          if(res.meta.status !== 200) return this.$message.error('登录失败！');
-          this.$message.success('登录成功');
-          window.sessionStorage.setItem('token',res.data.token);
-          this.$router.push('/home');
+          const { data: res } = await this.$axios.post('login', this.loginForm)
+          // console.log(res)
+          if (res.meta.status !== 200) return this.$message.error('登录失败！')
+          this.$message.success('登录成功')
+          window.sessionStorage.setItem('token', res.data.token)
+          this.$router.push('/home')
 
-        });
+        })
       },
-      resetInfo(){
-          this.$refs.loginFormRef.resetFields();
+      resetInfo() {
+        this.$refs.loginFormRef.resetFields()
       }
     }
   }
@@ -78,11 +78,11 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            -webkit-transform: translate(-50%,-50%);
-            -moz-transform: translate(-50%,-50%);
-            -ms-transform: translate(-50%,-50%);
-            -o-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
             .avator_box {
                 width: 130px;
                 height: 130px;
@@ -96,11 +96,11 @@
                 box-shadow: 0 0 10px #ddd;
                 position: absolute;
                 left: 50%;
-                -webkit-transform: translate(-50%,-50%);
-                -moz-transform: translate(-50%,-50%);
-                -ms-transform: translate(-50%,-50%);
-                -o-transform: translate(-50%,-50%);
-                transform: translate(-50%,-50%);
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
                 border: 1px solid #eee;
                 img {
                     width: 100%;
@@ -116,7 +116,7 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            padding:0 20px;
+            padding: 0 20px;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
